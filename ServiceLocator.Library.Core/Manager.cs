@@ -29,7 +29,7 @@ namespace ServiceLocator.Library.Core
     {
         public static void AddManager(this IServiceCollection services)
         {
-            services.AddSingleton<IHttpContextAccessor>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<Manager>();
         }
     }
