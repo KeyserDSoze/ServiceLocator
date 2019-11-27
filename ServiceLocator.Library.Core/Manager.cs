@@ -18,9 +18,12 @@ namespace ServiceLocator.Library.Core
         private static ServiceContext serviceContext = new ServiceContext();
         public ServiceContext ServiceContext => serviceContext;
 
+        //Like a Singleton (Singleton), Lazy
+        private static ServiceContext serviceContext2;
+        public ServiceContext ServiceContext2 => serviceContext2 ?? (serviceContext2 = new ServiceContext());
+
         //Like a factory (Transient)
         public Transaction Transaction => new Transaction();
-
 
         private readonly IHttpContextAccessor HttpContextAccessor;
         public Manager(IHttpContextAccessor httpContextAccessor) => this.HttpContextAccessor = httpContextAccessor;
